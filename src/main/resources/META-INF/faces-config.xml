@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="https://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://xmlns.jcp.org/xml/ns/javaee https://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+	<application>
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>pt</supported-locale>
+			<supported-locale>pt_BR</supported-locale>
+		</locale-config>
+	</application>
+	
+	<managed-bean>
+        <managed-bean-name>agendamentoManagedBean</managed-bean-name>
+        <managed-bean-class>com.teste.pratico.domain.managedBean.AgendamentoManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+	
+	<managed-bean>
+        <managed-bean-name>solicitanteManagedBean</managed-bean-name>
+        <managed-bean-class>com.teste.pratico.domain.managedBean.SolicitanteManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+	
+	<managed-bean>
+        <managed-bean-name>vagasManagedBean</managed-bean-name>
+        <managed-bean-class>com.teste.pratico.domain.managedBean.VagasManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+</faces-config>

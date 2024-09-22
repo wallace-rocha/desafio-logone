@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Consulta de Agendamentos Por Solicitante</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</h:head>
+<h:body>
+    <div class="container">
+        <h1>Consulta de Agendamentos</h1>
+
+        <h:form id="formConsulta">
+            <p:growl id="messages" class="messages" />
+
+            <h:panelGrid columns="2" cellpadding="5" class="panelGrid">
+            
+                <h:outputLabel for="dataInicial" value="Data Inicial:" />
+                <p:calendar id="dataInicial" value="#{agendamentoManagedBean.dataInicial}" />
+
+                <h:outputLabel for="dataFinal" value="Data Final:" />
+                <p:calendar id="dataFinal" value="#{agendamentoManagedBean.dataFinal}" />
+
+                <h:outputLabel for="codigoSolicitante" value="Código do Solicitante:" />
+                <p:inputText id="codigoSolicitante" value="#{agendamentoManagedBean.codigoSolicitante}" />
+
+                <p:commandButton value="Consultar" 
+                    action="#{agendamentoManagedBean.consultarQuantidadeAgendamentosPorSolicitante}" 
+                    update=":formConsulta:messages, :formConsulta:tabelaAgendamentos" />
+                    
+            </h:panelGrid>
+            
+            <p:dataTable id="tabelaAgendamentos" value="#{agendamentoManagedBean.agendamentoDto}" var="agendamentoDto">
+            
+                <p:column headerText="Solicitante">
+                    <h:outputText value="#{agendamentoDto.nomeSolicitante}" />
+                </p:column>
+                
+                <p:column headerText="Total de Agendamentos">
+                    <h:outputText value="#{agendamentoDto.totalAgendamentos}" />
+                </p:column>
+                
+                <p:column headerText="Quantidade de Vagas">
+                    <h:outputText value="#{agendamentoDto.quantidadeVagas}" />
+                </p:column>
+                
+                <p:column headerText="Percentual">
+                    <h:outputText value="#{agendamentoDto.percentual}%" />
+                </p:column>
+                
+            </p:dataTable>
+            
+        </h:form>
+        
+        <h:form>
+	        <div class="back-button"> 
+	            <p:commandButton value="Voltar" action="index.xhtml" />
+	        </div>
+	    </h:form>
+	    
+    </div>
+</h:body>
+</html>

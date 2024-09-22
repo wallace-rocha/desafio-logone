@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Cadastro de Vagas</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</h:head>
+<h:body>
+    <div class="container">
+        <h1>Cadastro de Vaga</h1>
+
+        <h:form id="formAgendamento">
+            <p:growl id="messages" class="messages" />
+
+            <h:panelGrid columns="2" cellpadding="5" class="panelGrid">
+
+                <h:outputLabel for="dataInicial" value="Data Inicial:" />
+                <p:calendar id="dataInicial" value="#{vagasManagedBean.vaga.dataInicial}" />
+
+                <h:outputLabel for="dataFinal" value="Data Final:" />
+                <p:calendar id="dataFinal" value="#{vagasManagedBean.vaga.dataFinal}" />
+                
+                <h:outputLabel for="vagas" value="Quantidade:" />
+                <p:inputText id="vagas" value="#{vagasManagedBean.vaga.quantidade}" />
+
+                <p:commandButton value="Cadastrar" action="#{vagasManagedBean.inserirVaga(vagasManagedBean.vaga)}"
+                    update=":formAgendamento:messages" />
+                    
+            </h:panelGrid>
+                    
+        </h:form>
+        
+        <h:form>
+	        <div class="back-button"> 
+	            <p:commandButton value="Voltar" action="index.xhtml" />
+	        </div>
+	    </h:form>
+	    
+    </div>
+</h:body>
+</html>
